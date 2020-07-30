@@ -1,0 +1,111 @@
+\section{PROCEDIMIENTO} 
+
+\begin{itemize}
+\subsection{Creación de una Dimensión Regular}
+	 \item  En el Solution Explorer nos ubicamos en Data Sources View y podemos ver que tenemos la vista de las
+siguientes tablas:
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img1}
+	\end{center}	
+
+
+ \item Siempre se recomienda primero crear las dimensiones y como paso final recién crear el cubo, es por eso que
+eliminamos el cubo creado en el primer post. Luego nos dirigimos a Dimensions. Click derecho y ubicamos
+New Dimension
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img2}
+	\end{center}	
+
+ \item Nos abrirá un Wizard, donde la primera ventana es un resumen de lo que se puede realizar.
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img3}
+	\end{center}	
+
+ \item Esta paso en el wizard es muy importante ya que nos permite seleccionar el origen de la dimensión a crear.
+Seleccionamos la primera opcion:
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img4}
+    \end{center}	
+
+ \item Seleccionamos el Data source view (podríamos tener más de uno) y la tabla Dimensión, en este ejemplo
+DimProduct. En Key columns por defecto siempre selecciona al Primary Key de la tabla, pero este valor luego
+podría ser cambiado. También podemos añadirle un Name Column a este Key column pero lo dejaremos tal
+como esta:
+    
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img5}
+    \end{center}	
+ \item Marcamos los atributos con los cuales trabajaremos:
+    
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img6}
+    \end{center}	
+ \item Indicamos el Nombre a la dimensión:
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img7}
+    \end{center}	
+
+\subsection{Procesar una Dimensión}
+
+	 \item  Ya creada la dimensión, el siguiente paso es Procesarla para ver la generación de los datos. En la pestaña
+de Dimension Structure ubicamos la opción de Process:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img13}
+	\end{center}
+\item  Se nos abrirá una ventana donde nos mostrará el progreso del proceso de la dimensión DimProduct:
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img17}
+    \end{center}	
+    
+
+\item  En la pestaña de Browser exploramos los atributos y los valores que contienen.
+Exploramos el atributo Color:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img19}
+    \end{center}	
+    
+\item  Exploramos el atributo English Product Name:
+    \begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img21}
+    \end{center}	
+ 
+\item  Exploramos el atributo Product Key:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img22}
+    \end{center}	
+   
+Es aquí donde detectamos que si bien es cierto nos muestra los valores de Product Key , lo recomendable
+es que este atributo no sea visible para el usuario final, ya que esta es una llave propia del DW.
+
+\subsection{Creación de un Cubo}
+
+
+\item En las propiedades del atributo Product Key nos ubicamos en NameColumn:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img1_3}
+	\end{center}	
+
+\item Nos abrirá una ventana donde podemos enmascarar este atributo por otro, en este caso seleccionaremos el
+atributo EnglishProductName:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img2_3}
+	\end{center}	
+
+
+\item Eliminaremos el atributo EnglishProductName y renombraremos el atributo Product Key por Product, Procesamos la dimensión DimProduct.
+
+\item Una vez procesada la dimensión nos volvemos a Reconcetar al mismo. Si ahora consultamos el atributo Product obtendremos lo siguiente:
+
+	\begin{center}
+	\includegraphics[width=\columnwidth]{./Imagenes/img3_3}
+    \end{center}	
+
+
+
+\end{itemize}
+		
